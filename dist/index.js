@@ -77111,7 +77111,6 @@ async function prepareExecutable() {
 }
 async function prepareTemplates3() {
     const templateFile = external_path_.join(GODOT_WORKING_PATH, GODOT_TEMPLATES_FILENAME);
-    const tmpPath = external_path_.join(GODOT_WORKING_PATH, 'tmp');
     const godotVersion = await getGodotVersion();
     const godotVersionTemplatesPath = external_path_.join(GODOT_TEMPLATES_PATH, godotVersion);
     if (!external_fs_.existsSync(godotVersionTemplatesPath)) {
@@ -77122,10 +77121,8 @@ async function prepareTemplates3() {
         core.info(`✅ Found templates for Godot ${godotVersion} at ${godotVersionTemplatesPath}`);
         return;
     }
-    await (0,exec.exec)('unzip', ['-q', templateFile, '-d', GODOT_WORKING_PATH]);
-    await (0,exec.exec)('mv', [GODOT_TEMPLATES_PATH, tmpPath]);
-    await io.mkdirP(GODOT_TEMPLATES_PATH);
-    await (0,exec.exec)('mv', [tmpPath, godotVersionTemplatesPath]);
+    await io.mkdirP(godotVersionTemplatesPath);
+    await (0,exec.exec)('unzip', ['-q', templateFile, '-d', godotVersionTemplatesPath]);
 }
 async function prepareTemplates4() {
     const templateFile = external_path_.join(GODOT_WORKING_PATH, GODOT_TEMPLATES_FILENAME);
