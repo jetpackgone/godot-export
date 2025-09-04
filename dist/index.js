@@ -76948,6 +76948,7 @@ const GODOT_VERBOSE = core.getBooleanInput('verbose');
 const ARCHIVE_ROOT_FOLDER = core.getBooleanInput('archive_root_folder');
 const USE_GODOT_3 = core.getBooleanInput('use_godot_3');
 const EXPORT_PACK_ONLY = core.getBooleanInput('export_as_pack');
+const RELATIVE_TEMPLATES_PATH = core.getInput('relative_templates_path');
 // Parse export targets
 const exportPresetsStr = core.getInput('presets_to_export').trim();
 let exportPresets = null;
@@ -76989,7 +76990,7 @@ const GODOT_EXECUTABLE = 'godot_executable';
 const GODOT_ZIP = 'godot.zip';
 const GODOT_TEMPLATES_FILENAME = 'godot_templates.tpz';
 const EDITOR_SETTINGS_FILENAME = USE_GODOT_3 ? 'editor_settings-3.tres' : 'editor_settings-4.tres';
-const GODOT_TEMPLATES_PATH = external_path_.join(GODOT_WORKING_PATH, 'templates');
+const GODOT_TEMPLATES_PATH = external_path_.join(GODOT_WORKING_PATH, RELATIVE_TEMPLATES_PATH);
 let godotExecutablePath;
 async function exportBuilds() {
     if (!hasExportPresets()) {

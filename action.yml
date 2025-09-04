@@ -61,7 +61,10 @@ inputs:
     description: A comma-separated list of export presets to export. If not specified, all presets will be exported.
     default: ''
     required: false
-    
+  relative_templates_path:
+    description: If provided, templates will be fetched from this directory relative to root.
+    default: 'templates'
+    required: false
 
 outputs:
   build_directory:

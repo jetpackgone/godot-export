@@ -24,6 +24,7 @@ import {
   GODOT_EXPORT_TEMPLATES_PATH,
   CACHE_ACTIVE,
   GODOT_PROJECT_PATH,
+  RELATIVE_TEMPLATES_PATH,
 } from './constants';
 
 const GODOT_EXECUTABLE = 'godot_executable';
@@ -31,7 +32,7 @@ const GODOT_ZIP = 'godot.zip';
 const GODOT_TEMPLATES_FILENAME = 'godot_templates.tpz';
 const EDITOR_SETTINGS_FILENAME = USE_GODOT_3 ? 'editor_settings-3.tres' : 'editor_settings-4.tres';
 
-const GODOT_TEMPLATES_PATH = path.join(GODOT_WORKING_PATH, 'templates');
+const GODOT_TEMPLATES_PATH = path.join(GODOT_WORKING_PATH, RELATIVE_TEMPLATES_PATH);
 
 let godotExecutablePath: string;
 
